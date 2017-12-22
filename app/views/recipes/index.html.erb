@@ -1,4 +1,6 @@
+<div class="recipe-body">
 <% @recipes.each do |f| %>
-	<%= f.title %>
+	<%= link_to f.title, f%>
 	<%= f.description %>
 <%end%>
+</div>

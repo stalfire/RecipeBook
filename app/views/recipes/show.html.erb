@@ -1,11 +1,14 @@
-<%= @recipe.title %>
-<%= @recipe.category %>
-<% @recipe.ingredients.each do |ing|%>
-	<p><%= ing.name %></p>
-<%end%>
-<% @recipe.instructions.each do |inst| %>
-	<p><%= inst.step %></p>
-<%end%>
-
-<%= link_to "Edit", edit_recipe_path %>
-<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure ?"} %>
+<div class="recipe-body">
+	<%= @recipe.title %>
+	<%= @recipe.category %>
+	<% @recipe.ingredients.each do |ing|%>
+		<p><%= ing.name %></p>
+	<%end%>
+	<% @recipe.instructions.each do |inst| %>
+		<p><%= inst.step %></p>
+	<%end%>
+	<%if @recipe.user_id == current_user.id%>
+		<%= link_to "Edit", edit_recipe_path %>
+		<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure ?"} %>
+	<%end%>
+</div>
