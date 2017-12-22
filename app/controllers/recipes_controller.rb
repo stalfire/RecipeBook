@@ -13,11 +13,12 @@ class RecipesController < ApplicationController
 	end
 
 	def edit
+		@recipe = Recipe.find(params[:id])
 	end
 
 	def update
 		@recipe = Recipe.find(params[:id])
-		if @recipe.update(recipe_params)
+		if @recipe.update(params_for_recipe)
 			redirect_to @recipe
 		else
 			render 'edit'
@@ -36,13 +37,18 @@ class RecipesController < ApplicationController
 
 	def index
 		@recipes = Recipe.all
+		filtering_params(params).each do |key, value|
+    	@recipes = @recipes.public_send(key, value) if value.present?
+  		end
 	end
 
 private
 	
 	def params_for_recipe
-		# params.require(:recipe).permit(:title, :description, :user_id)
-		params.require(:recipe).permit(:title, :description,:user_id, ingredients_attributes: [:id, :name, :_destroy], instructions_attributes: [:id, :step, :_destroy])
+		params.require(:recipe).permit(:title, :description,:category,:user_id, ingredients_attributes: [:id, :name, :_destroy], instructions_attributes: [:id, :step, :_destroy])
+	end
+	def filtering_params(params)
+  		params.slice(:category)
 	end
 
 end

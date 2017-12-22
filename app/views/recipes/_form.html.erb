@@ -1,6 +1,7 @@
 <%= simple_form_for @recipe do |f| %>
 	<%= f.input :title, type: 'title' %>
 	<%= f.input :description, type: 'description' %>
+	<%= f.select(:category, ['Dessert', 'Appetizers', 'Breakfast'], {include_blank: "Select Type of Recipe"}, { :class => '' }) %>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
 
 		<%= f.simple_fields_for :ingredients do |ingredient| %>
