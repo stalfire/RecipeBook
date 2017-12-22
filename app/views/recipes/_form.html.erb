@@ -1,0 +1,5 @@
+<%= form_for @recipe do |f| %>
+Title<%= f.text_field :title, type: 'title' %>
+Description<%= f.text_field :description, type: 'description' %>
+<%= f.submit %>
+<%end%>
