@@ -9,7 +9,8 @@
   </head>
 
   <body>
+    <%= render partial: '/layouts/nav' %>
     <%= yield %>
-    <%= link_to "Home", root_path %>
+    <%= render partial: '/layouts/footer'%>
   </body>
 </html>

@@ -13,3 +13,60 @@
  *= require_tree .
  *= require_self
  */
+body{
+	margin: 0px;
+}
+
+/*//// Nav Bar ///*/
+nav{
+	width: 100%;
+	height: 46px;
+	background-image: url(https://ak5.picdn.net/shutterstock/videos/10965275/thumb/1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+a #nav-icon{
+	float: left;
+	margin: 10px;
+	margin-top: 5px;
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+}
+.nav-position-left{
+	float: left;
+	padding-top: 0px;
+	padding: 14px 16px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.nav-position-right{
+	float: right;
+	padding: 14px 16px;
+	display: inline-block;
+	text-decoration: none;
+}
+.nav-position-left:hover:not(.active) {
+    background-color: #eeec82;
+}
+.nav-position-right:hover:not(.active) {
+    background-color: #eeec82;
+}
+
+
+
+/*/// Footer ///*/
+#footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: url(http://tasmich.org/wp-content/uploads/2015/03/Dollarphotoclub_86327586-e1436719294390.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+}
+#footer p{
+	margin: 0px;
+}
