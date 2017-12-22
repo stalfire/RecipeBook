@@ -1,0 +1,15 @@
+<h2>Sign Up</h2>
+	<%= form_for @user do |form| %>
+	      <p>Name:</p>
+	      <%= form.text_field :name, type: 'name'%>
+	      <p>Email:</p>
+	      <%= form.text_field :email, type: 'email'%>
+	      <p>Password</p>
+	      <%= form.password_field :password %>
+
+		<%= form.submit %>
+
+	<%end%>
+	<%= link_to t(".sign_in"), login_path %>
+
+  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
