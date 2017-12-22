@@ -1,4 +1,5 @@
 <%= @recipe.title %>
+<%= @recipe.category %>
 <% @recipe.ingredients.each do |ing|%>
 	<p><%= ing.name %></p>
 <%end%>
