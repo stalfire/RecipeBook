@@ -1,1 +1,3 @@
-<%= render partial: '/recipes/form' %>
+<%if logged_in?%>
+	<%= render partial: '/recipes/form' %>
+<%end%>

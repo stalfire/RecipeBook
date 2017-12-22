@@ -1,8 +1,9 @@
-index
-<%= link_to ("sign up"), sign_up_path %>
-<%= link_to ("sign in"), login_path %>
-
+<div id="home">
+	<div id="home-title">
+		<p id="home-title-text">A Place where you can share recipe</p>
+	</div>
 <%= form_tag(recipes_path, method: :get) do %>
   <%= select_tag :category, options_from_collection_for_select(Recipe.select(:category).distinct.order(:category),"category","category") %>
   <%= submit_tag 'Search', name: nil%>
 <%end%>
+</div>
