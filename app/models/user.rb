@@ -1,6 +1,6 @@
 require 'bcrypt'
 class User < ApplicationRecord
-	has_many :recipe
+	has_many :recipes
 
 	validates :email, presence: true
   	validates :email, uniqueness: true
