@@ -1,26 +1,26 @@
 <div id="recipe-form-wrapper">
-	<div id="recipe-info-box">
 		<%= simple_form_for @recipe do |f| %>
-			<%= f.input :title, type: 'title' %>
-			<%= f.input :description, type: 'description' %>
-			<%= f.select(:category, ['Dessert', 'Appetizers', 'Breakfast'], {include_blank: "Select Type of Recipe"}, { :class => '' }) %>
-			<%= f.hidden_field :user_id, :value => current_user.id %>
-	</div>
+			<div id="recipe-info-box">
+				<%= f.input :title, type: 'title' %>
+				<%= f.input :description, type: 'description' %>
+				<%= f.select(:category, ['Dessert', 'Appetizers', 'Breakfast'], {include_blank: "Select Type of Recipe"}, { :class => '' }) %>
+				<%= f.hidden_field :user_id, :value => current_user.id %>
+				</div>
 	<div id="recipe-wrapper-box">	
 		<div id="recipe-ingredient-box">
 			<%= f.simple_fields_for :ingredients do |ingredient| %>
 				<%= render 'ingredient_fields', f: ingredient %>
 			<% end %>
-			<div>		
-			<%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+			<div class="link">		
+				<%= link_to_add_association 'Add Ingredient', f, :ingredients %>
 			</div>
 		</div>
 		<div id="recipe-instruction-box">
 			<%= f.simple_fields_for :instructions do |instruction| %>
 				<%= render 'instruction_fields', f: instruction %>
 			<% end %>
-			<div>	
-			<%= link_to_add_association 'Add Step', f, :instructions %>
+			<div class="link">	
+				<%= link_to_add_association 'Add Step', f, :instructions %>
 			</div>
 		</div>	
 	</div>	

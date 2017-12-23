@@ -26,6 +26,7 @@ div #recipe-info-box{
 	margin-right: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	box-shadow: 10px 10px 5px grey;
 }
 #recipe-wrapper-box{
 	display: flex;
@@ -40,6 +41,7 @@ div #recipe-info-box{
 	width: 40%;
 	border-radius: 30px;
 	background:rgba(100,100,100, 0.5);
+	box-shadow: 10px 10px 5px grey;
 }
 #recipe-instruction-box{
 	margin-left: auto;
@@ -47,6 +49,7 @@ div #recipe-info-box{
 	width: 40%;
 	border-radius: 30px;
 	background:rgba(100,100,100, 0.5);
+	box-shadow: 10px 10px 5px grey;
 }
 #recipe-form-btn{
 	width: 10%;
@@ -126,4 +129,51 @@ hr.line_style:after{
 	border-radius: 20px;
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
+}
+
+/*// recipe show page //*/
+
+#recipe_show_title{
+	background-image: url(http://www.fudart.co.za/images/background_header.jpg);
+	background-size: cover;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	margin-bottom: 4px;
+}
+#recipe_show_title>p{
+	width: 30%;
+}
+
+.ingredients_show{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.ingredients_show>p{
+	width: 30%;
+	margin: 0;
+}
+#recipe_show_title2{
+	background-image: url(https://theelementsrestaurant.com/wp-content/uploads/2017/01/about-header-background.jpg);
+	background-size: cover;
+	display: flex;
+	flex-direction: row;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	margin-bottom: 4px;
+}
+#recipe_show_title2>p{
+	width: 30%
+}
+
+.instructions_show{
+	text-align: left;
+}
+.instructions_show>p{
+	width: 20%;
+	margin: 0;
+	margin-left: 15px;
 }
