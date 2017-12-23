@@ -1,16 +1,18 @@
-<h2>Sign In</h2>
+<div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Sign In</div>
+      <div class='subtitle'>Log in now and start to share your recipe.</div>
+      <div class='input-fields'>
+      	<%= form_for(:session, url: login_path) do |f| %>
+      		<%= f.text_field :email, type: 'email',placeholder:"E-mail",class:"input-line full-width"%>
+      		<%= f.text_field :password, type: 'password',placeholder:"Password",class:"input-line full-width"%>
+        	<div><%= f.submit "Login",:class => "ghost-round full-width" %></div>
+        <%end%>	
+      </div>
+      <div class='spacing'>or continue with <span><%= link_to "Facebook", "/auth/facebook", :class => 'highlight'%></span></div>
+	</div>
+</div>
 
-	 <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email%>
 
-      <%= f.label :password %>
-      <%= f.password_field :password%>
-
-      <%= f.submit "Log in"%>
-    <% end %>
-
-<%= link_to t(".sign_up"), sign_up_path %>
-
-<%= link_to "Sign up with Facebook", "/auth/facebook" %>
