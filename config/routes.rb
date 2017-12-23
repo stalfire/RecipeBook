@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
 	get "/sign_up" => "users#new", as: "sign_up"
 
-  root 'home#index'
+	get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+  	root 'home#index'
 end
