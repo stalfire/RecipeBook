@@ -6,6 +6,7 @@
 	<%if logged_in?%>
 		<%= link_to ("Log out"), logout_path, method: :delete, :class => 'nav-position-right' %>
 		<%= link_to "Create new recipe", new_recipe_path,{class:'nav-position-right'} %>
+		<%= link_to "My Profile", user_path(current_user.id),{class:'nav-position-right'}%>
 	<%else%>
 		<%= link_to ("sign up"), sign_up_path,{class:'nav-position-right'}%>
 		<%= link_to ("sign in"), login_path,{class:'nav-position-right'} %>
