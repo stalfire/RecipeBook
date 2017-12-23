@@ -35,10 +35,9 @@
 			<% @recipes.each do |f| %>
 				<div class="recipe-index-box">
 					<div class="recipe-index-image">
-						
+						<%= link_to (image_tag f.avatar[0],{id:'recipe-index-image-size'}), f%>
 					</div>
-					<p><%= link_to f.title, f%></p>
-					<p><%= f.description %></p>
+					<p><%= f.title %></p>
 				</div>
 			<%end%>
 		<div>
