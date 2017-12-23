@@ -1,6 +1,13 @@
 <div class="recipe-body">
-<% @recipes.each do |f| %>
-	<%= link_to f.title, f%>
-	<%= f.description %>
-<%end%>
+	<div id="recipe-index-wrapper">
+		<% @recipes.each do |f| %>
+			<div class="recipe-index-box">
+				<div class="recipe-index-image">
+					
+				</div>
+				<p><%= link_to f.title, f%></p>
+				<p><%= f.description %></p>
+			</div>
+		<%end%>
+	<div>
 </div>

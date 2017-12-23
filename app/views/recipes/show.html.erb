@@ -7,8 +7,10 @@
 	<% @recipe.instructions.each do |inst| %>
 		<p><%= inst.step %></p>
 	<%end%>
-	<%if @recipe.user_id == current_user.id%>
-		<%= link_to "Edit", edit_recipe_path %>
-		<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure ?"} %>
+	<%if current_user != nil%>
+		<%if @recipe.user_id == current_user.id%>
+			<%= link_to "Edit", edit_recipe_path %>
+			<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure ?"} %>
+		<%end%>
 	<%end%>
 </div>
