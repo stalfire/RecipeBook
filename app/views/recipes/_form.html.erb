@@ -5,7 +5,9 @@
 				<%= f.input :title, type: 'title' %>
 				<%= f.input :description, type: 'description' %>
 				<%= f.select(:category, ['Dessert', 'Appetizers', 'Breakfast'], {include_blank: "Select Type of Recipe"}, { :class => '' }) %>
+				<% if current_user.reg_user? %>
 				<%= f.hidden_field :user_id, :value => current_user.id %>
+				<%end%>
 				</div>
 	<div id="recipe-wrapper-box">	
 		<div id="recipe-ingredient-box">
