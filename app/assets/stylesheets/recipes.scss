@@ -6,6 +6,7 @@
 	background-image: url(https://dz0zjhi21dz2t.cloudfront.net/media/86263/photos/131171/2048.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	height: 800px;
 }
 
 /*//recipe form //*/
@@ -16,21 +17,163 @@
 	width: 100%;
 	text-align: center;
 }
-#recipe-info-box{
-	width: 100%;
+div #recipe-info-box{
+	width: 80%;
 	height: 10em;
+	border-radius: 30px;
+	background:rgba(100,100,100, 0.5);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	box-shadow: 10px 10px 5px grey;
 }
 #recipe-wrapper-box{
 	display: flex;
 	flex-direction: row;
 	height: 400px;
+	width: 100%;
+	text-align: center;
 }
 #recipe-ingredient-box{
-	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	border-radius: 30px;
+	background:rgba(100,100,100, 0.5);
+	box-shadow: 10px 10px 5px grey;
 }
 #recipe-instruction-box{
-	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	border-radius: 30px;
+	background:rgba(100,100,100, 0.5);
+	box-shadow: 10px 10px 5px grey;
 }
 #recipe-form-btn{
 	width: 10%;
+}
+
+/*//recipe index page //*/
+
+.flex-container{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.flex-container>div{
+ 	margin: 5px 5% 5px 5%;
+}
+
+.category{
+	text-align: center;
+	height: 100px;
+	border-radius: 15px;
+}
+
+.category h4{
+	font-weight: bold;
+}
+
+.category:hover{
+ 	background-color: rgba(169, 169, 169, .3);
+ 	border-bottom: 3px solid #006680;
+}
+.category_image{
+	width: 50px;
+	height: 50px;
+}
+hr.line_style{ 
+	overflow: visible;
+	padding: 0;
+	border: none;
+	border-top: medium double #333;
+	color: #333;
+	text-align: center;
+}
+hr.line_style:after{
+	content: '§';
+	display: inline-block;
+	position: relative;
+	top: -0.7em;
+	font-size: 1.5em;
+	padding: 0 0.25em;
+}
+
+#recipe-index-wrapper{
+	width: 100%;
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+.recipe-index-box{
+	width: 15%;
+	background-color: yellow;
+	margin: 30px;
+	border-radius: 20px;
+	box-shadow: 10px 10px 5px grey;
+}
+.recipe-index-box:hover{
+	transform: scale(1.2);
+	box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+}
+.recipe-index-image{
+	justify-content: center;
+	background-color: green;
+	width: 100%;
+	height: 50px;
+	border-radius: 20px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+/*// recipe show page //*/
+
+#recipe_show_title{
+	background-image: url(http://www.fudart.co.za/images/background_header.jpg);
+	background-size: cover;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	margin-bottom: 4px;
+}
+#recipe_show_title>p{
+	width: 30%;
+}
+
+.ingredients_show{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.ingredients_show>p{
+	width: 30%;
+	margin: 0;
+}
+#recipe_show_title2{
+	background-image: url(https://theelementsrestaurant.com/wp-content/uploads/2017/01/about-header-background.jpg);
+	background-size: cover;
+	display: flex;
+	flex-direction: row;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	margin-bottom: 4px;
+}
+#recipe_show_title2>p{
+	width: 30%
+}
+
+.instructions_show{
+	text-align: left;
+}
+.instructions_show>p{
+	width: 20%;
+	margin: 0;
+	margin-left: 15px;
 }

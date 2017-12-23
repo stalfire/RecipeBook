@@ -66,6 +66,7 @@ a #nav-icon{
     background-repeat: no-repeat;
     color: white;
     text-align: center;
+    position: fixed;
 }
 #footer p{
 	margin: 0px;
