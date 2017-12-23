@@ -1,9 +1,14 @@
 <div class="recipe-body">
 	<div id="recipe-form-wrapper">
-		<div id="recipe-info-box">
-			<%= @recipe.title %>
-			<%= @recipe.description %>
-			<%= @recipe.category %>
+		<div id="recipe_show_info_box">
+			<div id="recipe_show_image">
+				<%= image_tag @recipe.avatar[0],{id:'recipe_image'}%>
+			</div>
+			<div>
+				<h1 id="recipe_title"><%= @recipe.title %></h1>
+				<p id="recipe_category"><%= @recipe.category %></p>
+				<p id="recipe_description"><%= @recipe.description %></p>
+			</div>
 		</div>
 		<div id="recipe-wrapper-box">	
 			<div id="recipe-ingredient-box">

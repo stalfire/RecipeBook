@@ -1,6 +1,7 @@
 <div id="recipe-form-wrapper">
 		<%= simple_form_for @recipe do |f| %>
 			<div id="recipe-info-box">
+				<%= f.file_field :avatar, multiple: true%>
 				<%= f.input :title, type: 'title' %>
 				<%= f.input :description, type: 'description' %>
 				<%= f.select(:category, ['Dessert', 'Appetizers', 'Breakfast'], {include_blank: "Select Type of Recipe"}, { :class => '' }) %>
@@ -8,6 +9,10 @@
 				</div>
 	<div id="recipe-wrapper-box">	
 		<div id="recipe-ingredient-box">
+			<div id="recipe_show_title">
+					<p>Ingredients</p>
+					<p>Amount</p>
+			</div>
 			<%= f.simple_fields_for :ingredients do |ingredient| %>
 				<%= render 'ingredient_fields', f: ingredient %>
 			<% end %>
@@ -16,6 +21,9 @@
 			</div>
 		</div>
 		<div id="recipe-instruction-box">
+			<div id="recipe_show_title2">
+					<p>Cooking Steps</p>
+			</div>
 			<%= f.simple_fields_for :instructions do |instruction| %>
 				<%= render 'instruction_fields', f: instruction %>
 			<% end %>

@@ -111,6 +111,7 @@ hr.line_style:after{
 }
 .recipe-index-box{
 	width: 15%;
+	height: 200px;
 	background-color: yellow;
 	margin: 30px;
 	border-radius: 20px;
@@ -122,17 +123,69 @@ hr.line_style:after{
     z-index: 2;
 }
 .recipe-index-image{
-	justify-content: center;
-	background-color: green;
+}
+#recipe-index-image-size{
 	width: 100%;
-	height: 50px;
+	height: 150px;
 	border-radius: 20px;
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
 }
 
-/*// recipe show page //*/
+.nested-fields{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.nested-fields>a{
+	text-decoration: none;
+}
+.link>a{
+	text-decoration: none;
+}
 
+
+/*// recipe show page //*/
+#recipe_show_info_box{
+	width: 80%;
+	height: 10em;
+	border-radius: 30px;
+	background:rgba(100,100,100, 0.5);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	box-shadow: 10px 10px 5px grey;
+	display: flex;
+	flex-direction: row;
+}
+#recipe_title{
+	margin-bottom: 0px;
+}
+#recipe_category{
+	text-align: left;
+	margin: 0;
+}
+#recipe_description{
+	text-align: left;
+	margin: 0px;
+}
+#recipe_show_image{
+
+}
+#recipe_image{
+	width: 100px;
+	height: 100px;
+	margin: 25px 20px 20px 40px;
+	border-radius: 15px;
+
+}
+
+#recipe_image:hover{
+	transform: scale(2);
+	box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+}
 #recipe_show_title{
 	background-image: url(http://www.fudart.co.za/images/background_header.jpg);
 	background-size: cover;
@@ -151,6 +204,9 @@ hr.line_style:after{
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+}
+.ingredients_show:hover{
+	transform: scale(1.1);
 }
 .ingredients_show>p{
 	width: 30%;
@@ -173,7 +229,11 @@ hr.line_style:after{
 	text-align: left;
 }
 .instructions_show>p{
-	width: 20%;
+	width: 100%;
 	margin: 0;
 	margin-left: 15px;
+}
+.instructions_show:hover{
+	transform: scale(1.1);
+	margin-left: 20px;
 }
