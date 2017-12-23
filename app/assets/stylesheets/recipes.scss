@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .recipe-body{
-	background-image: url(https://dz0zjhi21dz2t.cloudfront.net/media/86263/photos/131171/2048.jpg);
+	background-image: url(https://s3-ap-southeast-1.amazonaws.com/stalfire/2048.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 800px;
@@ -187,7 +187,7 @@ hr.line_style:after{
     z-index: 2;
 }
 #recipe_show_title{
-	background-image: url(http://www.fudart.co.za/images/background_header.jpg);
+	background-image: url(https://s3-ap-southeast-1.amazonaws.com/stalfire/background_header.jpg);
 	background-size: cover;
 	display: flex;
 	flex-direction: row;
@@ -213,7 +213,7 @@ hr.line_style:after{
 	margin: 0;
 }
 #recipe_show_title2{
-	background-image: url(https://theelementsrestaurant.com/wp-content/uploads/2017/01/about-header-background.jpg);
+	background-image: url(https://s3-ap-southeast-1.amazonaws.com/stalfire/about-header-background.jpg);
 	background-size: cover;
 	display: flex;
 	flex-direction: row;
