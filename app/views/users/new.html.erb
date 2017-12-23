@@ -1,5 +1,7 @@
-<% if logged_in? %>
-  <META http-equiv="refresh" content="1;URL=/users/show"> 
-<% else %>
-  <%= render partial: '/users/form' %>
-<% end %>
+<div class="user_main">
+	<% if logged_in? %>
+	  <META http-equiv="refresh" content="1;URL=/users/show"> 
+	<% else %>
+	  <%= render partial: '/users/form' %>
+	<% end %>
+</div>
