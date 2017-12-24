@@ -5,9 +5,20 @@
 				<%= image_tag @recipe.avatar[0],{id:'recipe_image'}%>
 			</div>
 			<div>
-				<h1 id="recipe_title"><%= @recipe.title %></h1>
+				<h1 id="recipe_title" style="text-align: left;"><%= @recipe.title %></h1>
 				<p id="recipe_category"><%= @recipe.category %></p>
 				<p id="recipe_description"><%= @recipe.description %></p>
+			</div>
+			<div id="recipe_show_duration_and_like">
+				<div id="recipe_show_duration">
+					<p>Preparation TIme</p>
+					<p><%= @recipe.duration %></p>
+				</div>
+				<div class="like-content">
+				  <button class="btn-secondary like-review">
+				    Like
+				  </button>
+				</div>
 			</div>
 		</div>
 		<div id="recipe-wrapper-box">	

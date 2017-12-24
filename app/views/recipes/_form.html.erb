@@ -19,7 +19,7 @@
 				<%= render 'ingredient_fields', f: ingredient %>
 			<% end %>
 			<div class="link">		
-				<%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+				<%= link_to_add_association 'Add Ingredient', f, :ingredients, :class => "addIngredientsButton" %>
 			</div>
 		</div>
 		<div id="recipe-instruction-box">
@@ -30,7 +30,7 @@
 				<%= render 'instruction_fields', f: instruction %>
 			<% end %>
 			<div class="link">	
-				<%= link_to_add_association 'Add Step', f, :instructions %>
+				<%= link_to_add_association 'Add Step', f, :instructions, :class => "addInstructionsButton" %>
 			</div>
 		</div>	
 	</div>	

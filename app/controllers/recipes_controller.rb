@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
 private
 	
 	def params_for_recipe
-		params.require(:recipe).permit({avatar: []},:title, :description,:category,:user_id, ingredients_attributes: [:id, :name, :amount, :_destroy], instructions_attributes: [:id, :step, :_destroy])
+		params.require(:recipe).permit({avatar: []},:title, :description,:category,:duration,:user_id, ingredients_attributes: [:id, :name, :amount, :_destroy], instructions_attributes: [:id, :step, :_destroy])
 	end
 	def filtering_params(params)
   		params.slice(:category)

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(current_user.id)
 		if @user.update_attributes(user_params)
-			redirect_to home_index_path
+			redirect_to user_path
 		else
 			redirect_to edit_user_path(current_user.id)
 		end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 private
 
 	def user_params
-		params.require(:user).permit(:name, :email, :password)
+		params.require(:user).permit({avatar: []},:name, :email, :password)
 	end
 
 end

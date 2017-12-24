@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171223142507) do
+ActiveRecord::Schema.define(version: 20171224055256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20171223142507) do
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "like"
+    t.bigint "user_id"
+    t.bigint "recipe_id"
+    t.index ["recipe_id"], name: "index_ratings_on_recipe_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -50,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171223142507) do
     t.datetime "updated_at", null: false
     t.string "category"
     t.json "avatar"
+    t.string "duration"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -60,10 +69,13 @@ ActiveRecord::Schema.define(version: 20171223142507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0
+    t.json "avatar"
   end
 
   add_foreign_key "authentications", "users"
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "instructions", "recipes"
+  add_foreign_key "ratings", "recipes"
+  add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "users"
 end
