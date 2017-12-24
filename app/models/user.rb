@@ -7,6 +7,9 @@ class User < ApplicationRecord
   	validates :name, presence: true
 	has_secure_password
 
+  mount_uploaders :avatar, AvatarUploader
+  serialize :avatars, JSON
+
 	enum role: [ :reg_user, :admin ] 
 
 	has_many :authentications, dependent: :destroy

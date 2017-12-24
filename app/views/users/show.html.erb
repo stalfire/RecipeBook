@@ -1,4 +1,41 @@
 <div id="user_show_main">
-<%= @user.name %>
-<%= current_user.name %>
+	<div class="frame">
+	  <div class="center">
+	    
+			<div class="profile">
+				<div class="image">
+					<div class="circle-1"></div>
+					<div class="circle-2"></div>
+					<%if @user.avatar?%>
+						<%= image_tag @user.avatar[0]%>
+					<%else%>
+						<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg"%>
+					<%end%>	
+				</div>
+				
+				<div class="name"><%= @user.name %></div>
+				<div class="email"><%= @user.email %></div>
+				
+				<div class="actions">
+					<button class="btn">Follow</button>
+					<button class="btn"><%= link_to "Edit Profile", edit_user_path(current_user.id),{id:"edit_profile_button"} %></button>
+				</div>
+			</div>
+			
+			<div class="stats">
+				<div class="box">
+					<span class="value">523</span>
+					<span class="parameter">Posts</span>
+				</div>
+				<div class="box">
+					<span class="value">1387</span>
+					<span class="parameter">Likes</span>
+				</div>
+				<div class="box">
+					<span class="value">146</span>
+					<span class="parameter">Follower</span>
+				</div>
+			</div>
+	  </div>
+	</div>
 </div>
