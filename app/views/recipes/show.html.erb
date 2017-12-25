@@ -1,17 +1,17 @@
 <div class="recipe-body">
 	<div id="recipe-form-wrapper">
 		<div id="recipe_show_info_box">
-			<div id="recipe_show_image">
+			<div>
 				<%if @recipe.avatar[0] != nil%>
 				<%= image_tag @recipe.avatar[0],{id:'recipe_image'}%>
 				<%else%>
 				<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg",{id:'recipe_image'}%>
 				<%end%>
 			</div>
-			<div>
-				<h1 id="recipe_title" style="text-align: left;"><%= @recipe.title %></h1>
-				<p id="recipe_category"><%= @recipe.category %></p>
-				<p id="recipe_description"><%= @recipe.description %></p>
+			<div style="width: 40%">
+				<h1 class="recipe_title" style="text-align: left;"><%= @recipe.title %></h1>
+				<p class="recipe_category"><%= @recipe.category %></p>
+				<p class="recipe_description"><%= @recipe.description %></p>
 			</div>
 			<div id="recipe_show_duration_and_like">
 				<div id="recipe_show_duration">

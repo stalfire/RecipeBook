@@ -1,14 +1,32 @@
 <div id="recipe-form-wrapper">
 		<%= simple_form_for @recipe do |f| %>
 			<div id="recipe-info-box">
-				<%= f.file_field :avatar, multiple: true%>
-				<%= f.input :title, type: 'title' %>
-				<%= f.input :description, type: 'description' %>
-				<%= f.select(:category, ['Dessert', 'Appetizers', 'Breakfast'], {include_blank: "Select Type of Recipe"}, { :class => '' }) %>
-				<% if current_user.reg_user? %>
-				<%= f.hidden_field :user_id, :value => current_user.id %>
-				<%end%>
+				<div id="recipe-form-box">
+					<div>
+						<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg",{id:'recipe_form_image'}%>
+					</div>
+					<%= f.file_field :avatar, multiple: true%>
 				</div>
+				<div id="recipe-form-info">
+					<div class="group">
+						<%= f.input :title, type: 'title',label: 'Recipe Name'%>     
+				    </div>
+				    <div id="recipe_form_select">
+					  <%= f.select(:category, ['Dessert', 'Appetizer', 'Breakfast', 'Main Course', 'Bread', 'Other'], {include_blank: "Select Type of Recipe"}) %>
+					</div>
+					<% if current_user.reg_user? %>
+						<%= f.hidden_field :user_id, :value => current_user.id %>
+					<%end%>
+				</div>
+				<div id="recipe-form-info2">
+					<div class="group">      
+				      <%= f.input :description, type: 'description',label: 'Recipe Description' %>
+				    </div>
+				    <div class="group">      
+				      <%= f.input :duration, type: 'duration',label: 'Preparation Time' %>
+				    </div>
+				</div> 
+			</div>
 	<div id="recipe-wrapper-box">	
 		<div id="recipe-ingredient-box">
 			<div id="recipe_show_title">
