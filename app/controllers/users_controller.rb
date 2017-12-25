@@ -26,8 +26,10 @@ class UsersController < ApplicationController
 	end
 	def show
 		@user = User.find(params[:id])
-		@user_following = Follow.where(follower: current_user.id)
-		@following = @user_following.find_by(user_id: params[:id])
+		if current_user != nil
+			@user_following = Follow.where(follower: current_user.id)
+			@following = @user_following.find_by(user_id: params[:id])
+		end
 		@follower = Follow.where(user_id: @user.id).count
 		@recipe = Recipe.where(user_id: params[:id]).count
 	end

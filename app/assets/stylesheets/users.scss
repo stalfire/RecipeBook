@@ -12,6 +12,17 @@
 	padding-top: 10%;
 
 }
+#user_sign_up_body{
+  background-image: url(https://theveganword.com/wp-content/uploads/2016/05/launch-page-cooking-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 100%;
+}
+#user_sign_up{
+  text-align: center;
+  padding-top: 5%;
+}
 
 /*//User form//*/
 
@@ -167,6 +178,8 @@ button:focus {
   background: #fff;
   border-radius: 15px;
   margin-left: 15%;
+  margin-top: 5%;
+  text-align: center;
 }
 
 .overlay {

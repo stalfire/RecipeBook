@@ -43,6 +43,8 @@
 						<%else%>	
 							<button class="btn"><%= link_to "Recipes", recipes_path(user_id: @user.id) %></button>	
 						<%end%>
+					<%else%>
+						<button class="btn"><%= link_to "My Recipe", recipes_path(user_id: @user.id)%></button>
 					<%end%>
 				</div>
 			</div>
