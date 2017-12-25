@@ -35,7 +35,11 @@
 			<% @recipes.each do |f| %>
 				<div class="recipe-index-box">
 					<div class="recipe-index-image">
+						<%if f.avatar[0] != nil%>
 						<%= link_to (image_tag f.avatar[0],{id:'recipe-index-image-size'}), f%>
+						<%else%>
+						<%= link_to (image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg",{id:"recipe-index-image-size"}),f%>
+						<%end%>
 					</div>
 					<p><%= f.title %></p>
 				</div>

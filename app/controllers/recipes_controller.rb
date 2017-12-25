@@ -48,7 +48,7 @@ private
 		params.require(:recipe).permit({avatar: []},:title, :description,:category,:duration,:user_id, ingredients_attributes: [:id, :name, :amount, :_destroy], instructions_attributes: [:id, :step, :_destroy])
 	end
 	def filtering_params(params)
-  		params.slice(:category)
+  		params.slice(:category,:user_id)
 	end
 
 end
