@@ -9,7 +9,7 @@
 	});
 	});
 </script>
-<div class="recipe-body">
+<body class="recipe-body">
 	<div id="recipe-form-wrapper">
 		<div id="recipe_show_info_box">
 			<div>
@@ -19,7 +19,7 @@
 				<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg",{id:'recipe_image'}%>
 				<%end%>
 			</div>
-			<div style="width: 100%">
+			<div style="width: 200%">
 				<h1 class="recipe_title" style="text-align: left;"><%= @recipe.title %></h1>
 				<p class="recipe_category"><%= @recipe.category %></p>
 				<p class="recipe_description"><%= @recipe.description %></p>
@@ -76,4 +76,4 @@
 	<div id="link_for_creator">
 		<p>Created by: <%= link_to @recipe.user.name, user_path(@recipe.user_id) %></p>
 	</div>
-</div>
+</body>

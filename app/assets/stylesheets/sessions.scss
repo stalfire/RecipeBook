@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user_login_main{
+#user_login_body{
 	background-image: url(https://motherhoodtherealdeal.com/wp-content/uploads/2017/06/OMHY540.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	width: 100%;
-	height: 670px;
+	min-width: 100%;
+	min-height: 100%
+}
+.user_login_main{
 	text-align: center;
-	padding-top: 10%;
-
+	padding-top: 5%;
 }

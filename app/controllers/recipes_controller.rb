@@ -33,8 +33,10 @@ class RecipesController < ApplicationController
 
 	def show
 		@recipe = Recipe.find(params[:id])
-		@like = Rating.where(user_id: current_user.id)
-		@liked = @like.find_by(recipe_id: params[:id])
+		if current_user != nil
+			@like = Rating.where(user_id: current_user.id)
+			@liked = @like.find_by(recipe_id: params[:id])
+		end
 	end
 
 	def index
