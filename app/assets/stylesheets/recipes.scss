@@ -26,6 +26,8 @@
   border:none;
   border-bottom:1px solid #757575;
   border-radius: 15px;
+  background-color:  #f9d7a8;
+  box-shadow: 1px 1px 11px #f9f0a8;
 }
 .group textarea 				{
   font-size:18px;
@@ -35,6 +37,8 @@
   border:none;
   border-bottom:1px solid #757575;
   border-radius: 15px;
+  background-color:  #f9d7a8;
+  box-shadow: 1px 1px 11px #f9f0a8;
 }
 .group input:focus 		{ outline:none; }
 
@@ -383,6 +387,10 @@ hr.line_style:after{
 }
 .nested-fields>a{
 	text-decoration: none;
+}
+.nested-fields input{
+	border-radius: 15px;
+	padding-left:10px;
 }
 .link>a{
 	text-decoration: none;
