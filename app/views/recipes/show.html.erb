@@ -1,23 +1,40 @@
+<script>
+	$(document).ready(function(){
+	$("#like_btn").click(function() {
+	    if ($(this).text() == "Like") {
+	        $(this).text("Liked"); 
+	    } else {
+	        $(this).text("Like"); 
+	    }; 
+	});
+	});
+</script>
 <div class="recipe-body">
 	<div id="recipe-form-wrapper">
 		<div id="recipe_show_info_box">
-			<div id="recipe_show_image">
-				<%= image_tag @recipe.avatar[0],{id:'recipe_image'}%>
-			</div>
 			<div>
-				<h1 id="recipe_title" style="text-align: left;"><%= @recipe.title %></h1>
-				<p id="recipe_category"><%= @recipe.category %></p>
-				<p id="recipe_description"><%= @recipe.description %></p>
+				<%if @recipe.avatar[0] != nil%>
+				<%= image_tag @recipe.avatar[0],{id:'recipe_image'}%>
+				<%else%>
+				<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg",{id:'recipe_image'}%>
+				<%end%>
+			</div>
+			<div style="width: 100%">
+				<h1 class="recipe_title" style="text-align: left;"><%= @recipe.title %></h1>
+				<p class="recipe_category"><%= @recipe.category %></p>
+				<p class="recipe_description"><%= @recipe.description %></p>
 			</div>
 			<div id="recipe_show_duration_and_like">
 				<div id="recipe_show_duration">
-					<p>Preparation TIme</p>
+					<p>Preparation Time</p>
 					<p><%= @recipe.duration %></p>
 				</div>
 				<div class="like-content">
-				  <button class="btn-secondary like-review">
-				    Like
-				  </button>
+					<%if @liked == nil %>
+				  		<button class="like-review"><%= link_to "Like", like_path(@recipe),{id: "like_btn"}%></button>
+				  	<%else%>
+				  		<button class="like-review"><%= link_to "Liked", like_path(@recipe),{id: "like_btn"}%></button>
+				  	<%end%>
 				</div>
 			</div>
 		</div>
@@ -48,10 +65,15 @@
 
 			</div>
 	</div>
+	<div id="button_for_edit_destroy">
 	<%if current_user != nil%>
 		<%if @recipe.user_id == current_user.id || current_user.admin? %>
 			<%= link_to "Edit", edit_recipe_path %>
 			<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure ?"} %>
 		<%end%>
 	<%end%>
+	</div>
+	<div id="link_for_creator">
+		<p>Created by: <%= link_to @recipe.user.name, user_path(@recipe.user_id) %></p>
+	</div>
 </div>

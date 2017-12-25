@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
 	get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
+	get "/follow" => "users#follow"
+	get "/like" => "recipes#like"
   	root 'home#index'
 end

@@ -33,6 +33,8 @@ class RecipesController < ApplicationController
 
 	def show
 		@recipe = Recipe.find(params[:id])
+		@like = Rating.where(user_id: current_user.id)
+		@liked = @like.find_by(recipe_id: params[:id])
 	end
 
 	def index
@@ -41,6 +43,16 @@ class RecipesController < ApplicationController
     	@recipes = @recipes.public_send(key, value) if value.present?
   		end
 	end
+	def like
+		@like = Rating.where(user_id: current_user.id)
+		@liked = @like.find_by(recipe_id: params[:format])
+		if @liked != nil
+			@liked.destroy
+		else
+			@like = Rating.new(like: 1, user_id: current_user.id, recipe_id: params[:format])
+			@like.save
+		end
+	end
 
 private
 	
@@ -48,7 +60,7 @@ private
 		params.require(:recipe).permit({avatar: []},:title, :description,:category,:duration,:user_id, ingredients_attributes: [:id, :name, :amount, :_destroy], instructions_attributes: [:id, :step, :_destroy])
 	end
 	def filtering_params(params)
-  		params.slice(:category)
+  		params.slice(:category,:user_id)
 	end
 
 end

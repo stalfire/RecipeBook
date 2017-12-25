@@ -1,3 +1,14 @@
+<script>
+	$(document).ready(function(){
+	$("#following_btn").click(function() {
+	    if ($(this).text() == "Follow") {
+	        $(this).text("Following"); 
+	    } else {
+	        $(this).text("Follow"); 
+	    }; 
+	});
+	});
+</script>
 <div id="user_show_main">
 	<div class="frame">
 	  <div class="center">
@@ -17,22 +28,36 @@
 				<div class="email"><%= @user.email %></div>
 				
 				<div class="actions">
-					<button class="btn">Follow</button>
-					<button class="btn"><%= link_to "Edit Profile", edit_user_path(current_user.id),{id:"edit_profile_button"} %></button>
+					<%if current_user != nil %>
+						<%if @user.id == current_user.id%>
+							<button class="btn"><%= link_to "My Recipe", recipes_path(user_id: @user.id)%></button>
+						<%else%>
+							<%if @following == nil %>
+								<button class="btn"><%= link_to "Follow", follow_path(@user),{id: "following_btn"}%></button>
+							<%else%>
+								<button class="btn"><%= link_to "Following", follow_path(@user),{id: "following_btn"}%></button>
+							<%end%>
+						<%end%>
+						<%if @user.id == current_user.id%>
+							<button class="btn"><%= link_to "Edit Profile", edit_user_path(current_user.id),{id:"edit_profile_button"} %></button>
+						<%else%>	
+							<button class="btn"><%= link_to "Recipes", recipes_path(user_id: @user.id) %></button>	
+						<%end%>
+					<%end%>
 				</div>
 			</div>
 			
 			<div class="stats">
 				<div class="box">
-					<span class="value">523</span>
-					<span class="parameter">Posts</span>
+					<span class="value" ><%= @recipe %></span>
+					<span class="parameter">Recipe Created</span>
 				</div>
 				<div class="box">
 					<span class="value">1387</span>
-					<span class="parameter">Likes</span>
+					<span class="parameter">Recipe Likes</span>
 				</div>
 				<div class="box">
-					<span class="value">146</span>
+					<span class="value" id="follower_ajax"><%= @follower %></span>
 					<span class="parameter">Follower</span>
 				</div>
 			</div>
