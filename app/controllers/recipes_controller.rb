@@ -33,6 +33,8 @@ class RecipesController < ApplicationController
 
 	def show
 		@recipe = Recipe.find(params[:id])
+		@like = Rating.where(user_id: current_user.id)
+		@liked = @like.find_by(recipe_id: params[:id])
 	end
 
 	def index
@@ -40,6 +42,16 @@ class RecipesController < ApplicationController
 		filtering_params(params).each do |key, value|
     	@recipes = @recipes.public_send(key, value) if value.present?
   		end
+	end
+	def like
+		@like = Rating.where(user_id: current_user.id)
+		@liked = @like.find_by(recipe_id: params[:format])
+		if @liked != nil
+			@liked.destroy
+		else
+			@like = Rating.new(like: 1, user_id: current_user.id, recipe_id: params[:format])
+			@like.save
+		end
 	end
 
 private

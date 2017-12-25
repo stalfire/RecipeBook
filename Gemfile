@@ -34,6 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 gem 'therubyracer'
 gem 'execjs'
+gem 'jquery-turbolinks'
 gem 'jquery-rails'
 gem 'rails_12factor', group: :production
 gem 'sidekiq'

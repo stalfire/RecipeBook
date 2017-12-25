@@ -3,15 +3,6 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-	$("#following_btn").click(function() {
-	    if ($(this).text() == "Follow") {
-	        $(this).text("Following"); 
-	    } else {
-	        $(this).text("Follow"); 
-	    }; 
-	});
-
-
 	// $('#following_btn').submit(function(e){
 	// 	e.preventDefault();
 	// 	$.ajax({
