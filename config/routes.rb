@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
 	get "/follow" => "users#follow"
 	post "/like" => "recipes#like"
+
+	get "/about" => "home#about"
   	root 'home#index'
 end

@@ -62,13 +62,16 @@ a #nav-icon{
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 35px;
     background-image: url(http://tasmich.org/wp-content/uploads/2015/03/Dollarphotoclub_86327586-e1436719294390.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
     text-align: center;
     position: fixed;
+
 }
-#footer p{
+#footer p a{
 	margin: 0px;
+	text-decoration: none;
 }
