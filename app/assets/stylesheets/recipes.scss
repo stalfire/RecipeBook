@@ -431,6 +431,7 @@ hr.line_style:after{
 #recipe_show_duration{
 	margin-left: 25%;
 	margin-top: 35px;
+	margin-right: 20px;
 	text-align: center;
 }
 #recipe_show_duration>p{
@@ -521,8 +522,11 @@ $light-color:  #FFFFFF;
 $dark-color:   #000000;
 $accent-color: #B7E9FF;
 
+.like-content{
+	margin: 20px;
+	margin-top: 30px;
+}
 .like-content input {
-  
   margin: auto;
   width: 90px;
   height: 40px;
@@ -540,12 +544,3 @@ $accent-color: #B7E9FF;
     color: darken($accent-color, 10%);
     transform: scale(1.2);
 } 
-
-/*.like-content a.likebutton {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    color: initial;
-}*/
