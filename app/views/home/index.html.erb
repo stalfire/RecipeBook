@@ -4,10 +4,10 @@
 	</div>
 	<div id="category">
 		<div class="category-box">
-			<%= form_tag(recipes_path, method: :get) do %>
+<!-- 			<%= form_tag(recipes_path, method: :get) do %>
  			 <%= select_tag :category, options_from_collection_for_select(Recipe.select(:category).distinct.order(:category),"category","category") %>
   			<%= submit_tag 'Search', name: nil%>
-			<%end%>
+			<%end%> -->
 		</div>
 	</div>
 </body>

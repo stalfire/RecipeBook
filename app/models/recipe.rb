@@ -6,6 +6,8 @@ class Recipe < ApplicationRecord
 	accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
 	accepts_nested_attributes_for :instructions, :reject_if => :all_blank, :allow_destroy => true
 	
+	validates :title, presence: true
+
 	mount_uploaders :avatar, AvatarUploader
 	serialize :avatars, JSON
 	
