@@ -1,13 +1,53 @@
 <script>
 	$(document).ready(function(){
-	$("#like_btn").click(function() {
-	    if ($(this).text() == "Like") {
-	        $(this).text("Liked"); 
-	    } else {
-	        $(this).text("Like"); 
-	    }; 
+		$("#like_btn").on("click",function() {
+		    if ($(this).text() == "Like") {
+		        $(this).text("Liked");
+		    } else {
+		        $(this).text("Like"); 
+		    }; 
+		});
+
+		// $('#like_btn').submit(function(e){
+		// 	e.preventDefault();
+		// 	$.ajax({
+		// 		url: '/like',
+		// 		method: 'POST',
+		// 		data: $(this).serialize(),
+		// 		dataType: 'json',
+		// 		success: function(data){
+		// 			console.log(data);
+		// 			// $(this).append('\<p>' + testing +'</td>\ ');
+		// 		}		
+		// 	})
+		// });
 	});
-	});
+	$(function() {
+
+	  // Change the link's icon while the request is performing
+	  $(document).on('click', 'a[data-remote]', function(event, b, c) {
+	    var icon = $(this).find('i');
+	    icon.data('old-class', icon.attr('class'));
+	    icon.attr('class', 'icon-refresh');
+	  });
+
+	  // Change the link's icon back after it's finished.
+	  $(document).on('ajax:complete', function(e) {
+	    var icon = $(e.target).find('i');
+	    if (icon.data('old-class')) {
+	      icon.attr('class', icon.data('old-class'));
+	      icon.data('old-class', null);
+	    }
+	  })
+
+	  // Don't fail silently
+	  $(document).ajaxError(function( event, jqxhr, settings, exception ) {
+	    if (jqxhr.status) {
+	      alert("We're sorry, but something went wrong (" + jqxhr.status + ')');
+	    }
+	  });
+
+	})
 </script>
 <body class="recipe-body">
 	<div id="recipe-form-wrapper">
@@ -30,11 +70,23 @@
 					<p><%= @recipe.duration %></p>
 				</div>
 				<div class="like-content">
+				<!-- <button type="button" href="/recipe.${@recipe.id}" id="like_btn">Like</button> -->
+				<%= button_to "Like", like_path(@recipe),{id: "like_btn"}%>
+				<p><%= @total_count%><p>
+					<!-- <button type='button' >
+						<%if @liked == nil %>
+					  		<i id="likebtn"><%= link_to "Like", like_path(@recipe),{id: "like_btn"}%></i>
+					  	<%else%>
+				  			<i id="likebtn"><%= link_to "Liked", like_path(@recipe),{id: "like_btn"}%></i>
+				  		<%end%>
+					  <span>0</span>
+					</button>
+ 
 					<%if @liked == nil %>
 				  		<button class="like-review"><%= link_to "Like", like_path(@recipe),{id: "like_btn"}%></button>
 				  	<%else%>
 				  		<button class="like-review"><%= link_to "Liked", like_path(@recipe),{id: "like_btn"}%></button>
-				  	<%end%>
+				  	<%end%> -->
 				</div>
 			</div>
 		</div>

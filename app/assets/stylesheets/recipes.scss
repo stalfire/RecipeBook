@@ -516,41 +516,36 @@ hr.line_style:after{
 
 /*//recipe show page like button//*/
 
-.like-content {
-	margin-left: 10%;
-	margin-top: 35px;
-}
+$body-color:   #486090;
+$light-color:  #FFFFFF;
+$dark-color:   #000000;
+$accent-color: #B7E9FF;
 
-.like-content .btn-secondary {
-	display: block;
-	margin: 0px;
-    text-align: center;
-    background: #ed2553;
-    border-radius: 3px;
-    box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
-    padding: 10px 17px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    color: #ffffff;
+.like-content input {
+  
+  margin: auto;
+  width: 90px;
+  height: 40px;
+  background: $light-color;
+  border: 0;
+  font-size: .9rem;
+  font-family: Futura;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0px 2px 0px rgba($dark-color,.1);
+  outline: none;
+}
+.like-content input:hover {
+    color: darken($accent-color, 10%);
+    transform: scale(1.2);
+} 
+
+/*.like-content a.likebutton {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
     text-decoration: none;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
-}
-.like-content .btn-secondary:hover {
-	  transform: translateY(-3px);
-}
-.like-content .btn-secondary .fa {
-	  margin-right: 5px;
-}
-.animate-like {
-	animation-name: likeAnimation;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-	animation-duration: 0.65s;
-}
-@keyframes likeAnimation {
-  0%   { transform: scale(30); }
-  100% { transform: scale(1); }
-}
+    color: initial;
+}*/

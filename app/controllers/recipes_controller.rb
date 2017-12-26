@@ -37,6 +37,9 @@ class RecipesController < ApplicationController
 			@like = Rating.where(user_id: current_user.id)
 			@liked = @like.find_by(recipe_id: params[:id])
 		end
+		@total_like = Rating.where(recipe_id: params[:id])
+		@total_count = @total_like.where(like: 1).count
+		@total_count
 	end
 
 	def index
@@ -54,6 +57,9 @@ class RecipesController < ApplicationController
 			@like = Rating.new(like: 1, user_id: current_user.id, recipe_id: params[:format])
 			@like.save
 		end
+		@total_like = Rating.where(recipe_id: params[:format])
+		@total_count = @total_like.where(like: 1).count
+		@total_count.to_json
 	end
 
 private
