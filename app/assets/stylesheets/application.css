@@ -24,6 +24,7 @@ nav{
 	background-image: url(https://s3-ap-southeast-1.amazonaws.com/stalfire/1.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
+	text-decoration: none;
 }
 a #nav-icon{
 	float: left;

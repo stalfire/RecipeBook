@@ -2,8 +2,8 @@ require 'bcrypt'
 class User < ApplicationRecord
 	has_many :recipes, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :follower, dependent: :destroy
-  has_many :rating, dependent: :destroy
+  has_many :followers, dependent: :destroy
+  has_many :ratings, dependent: :destroy
   
 	validates :email, presence: true
   	validates :email, uniqueness: true

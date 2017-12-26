@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	resources :users
 	resources :recipes
-	
+
 	get    '/login' => 'sessions#new'
   	post   '/login' => 'sessions#create'
   	delete '/logout' => 'sessions#destroy'
@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 	get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
 	get "/follow" => "users#follow"
-	get "/like" => "recipes#like"
+	post "/like" => "recipes#like"
   	root 'home#index'
 end

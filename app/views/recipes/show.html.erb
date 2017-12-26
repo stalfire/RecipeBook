@@ -1,12 +1,29 @@
 <script>
 	$(document).ready(function(){
-	$("#like_btn").click(function() {
-	    if ($(this).text() == "Like") {
-	        $(this).text("Liked"); 
-	    } else {
-	        $(this).text("Like"); 
-	    }; 
-	});
+		var like_btn = $('#like_btn');
+		$("#like_btn").on("click",function() {
+		    if (like_btn.attr('value') == 'Like #{@total_count}') {
+		        like_btn.val("Liked #{@total_count}");
+		        console.log("get liked")
+		    } else {
+		        like_btn.val("Like #{@total_count}"); 
+		        console.log("unliked")
+		    }; 
+		});
+
+		$('#like_btn').submit(function(e){
+			e.preventDefault();
+			$.ajax({
+				url: '/like.#{@recipe.id}',
+				method: 'POST',
+				data: $(this).serialize(),
+				dataType: 'json',
+				success: function(data){
+					console.log(data);
+					// $(this).append('\<p>' + testing +'</td>\ ');
+				}		
+			})
+		});
 	});
 </script>
 <body class="recipe-body">
@@ -31,10 +48,11 @@
 				</div>
 				<div class="like-content">
 					<%if @liked == nil %>
-				  		<button class="like-review"><%= link_to "Like", like_path(@recipe),{id: "like_btn"}%></button>
-				  	<%else%>
-				  		<button class="like-review"><%= link_to "Liked", like_path(@recipe),{id: "like_btn"}%></button>
-				  	<%end%>
+						<%= button_to "Like #{@total_count}", like_path(@recipe),{id: "like_btn"}%>
+					<%else%>
+						<%= button_to "Liked #{@total_count}", like_path(@recipe),{id: "like_btn"}%>
+					<%end%>
+					<p id="total_like"><%= @total_count%></p>
 				</div>
 			</div>
 		</div>
