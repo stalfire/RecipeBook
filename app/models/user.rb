@@ -1,8 +1,7 @@
 require 'bcrypt'
 class User < ApplicationRecord
 	has_many :recipes, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :followers, dependent: :destroy
+  has_many :follows, dependent: :destroy
   has_many :ratings, dependent: :destroy
   
 	validates :email, presence: true
@@ -11,7 +10,7 @@ class User < ApplicationRecord
 	has_secure_password
   has_secure_token
   mount_uploader :avatar, AvatarUploader
-  serialize :avatar, JSON
+
 
 	enum role: [ :reg_user, :admin ] 
 
@@ -22,7 +21,7 @@ class User < ApplicationRecord
       name: auth_hash["extra"]["raw_info"]["name"],
       email: auth_hash["extra"]["raw_info"]["email"],
       avatar: auth_hash["info"]["image"],
-      password: SecureRandom.hex(5) 
+      password: SecureRandom.hex(5)
       # rand(36**9).to_s(36)
     )
     user.authentications << authentication
