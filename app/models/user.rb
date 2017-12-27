@@ -33,4 +33,10 @@ class User < ApplicationRecord
     x = self.authentications.find_by(provider: 'facebook')
     return x.token unless x.nil?
   end
+
+  def check_avatar
+    self.avatar.url
+  end
 end
+
+  
