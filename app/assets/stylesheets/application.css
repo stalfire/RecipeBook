@@ -27,6 +27,9 @@ nav{
 	text-decoration: none;
 	position: sticky;
 }
+nav a{
+	color: white;
+}
 a #nav-icon{
 	float: left;
 	margin: 10px;
@@ -42,12 +45,16 @@ a #nav-icon{
 	display: inline-block;
 	text-decoration: none;
 }
+.nav-position-left:hover{
+	color: green;
+}
 
 .nav-position-right{
 	float: right;
 	padding: 14px 16px;
 	display: inline-block;
 	text-decoration: none;
+	color: #176831;
 }
 .nav-position-left:hover:not(.active) {
     background-color: #eeec82;
