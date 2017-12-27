@@ -20,7 +20,6 @@
     <div class='content'>
       <div class='welcome' style="margin-top: 15px;">Edit Profile</div>
       <%if @user.check_avatar %>
-      <%byebug%>
       <div class="upload-preview"><%= image_tag @user.avatar,:id => "edit_profile_picture"%></div>
       <%else%>
       <div><%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg",:id => "edit_profile_picture"%></div>
