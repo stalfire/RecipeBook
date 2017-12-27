@@ -9,9 +9,9 @@ class User < ApplicationRecord
   	validates :email, uniqueness: true
   	validates :name, presence: true
 	has_secure_password
-
-  mount_uploaders :avatar, AvatarUploader
-  serialize :avatars, JSON
+  has_secure_token
+  mount_uploader :avatar, AvatarUploader
+  serialize :avatar, JSON
 
 	enum role: [ :reg_user, :admin ] 
 
@@ -21,6 +21,7 @@ class User < ApplicationRecord
     user = self.create!(
       name: auth_hash["extra"]["raw_info"]["name"],
       email: auth_hash["extra"]["raw_info"]["email"],
+      avatar: auth_hash["info"]["image"],
       password: SecureRandom.hex(5) 
       # rand(36**9).to_s(36)
     )
