@@ -2,9 +2,15 @@
 	$(document).ready(function(){
 	$("#following_btn").click(function() {
 	    if ($(this).text() == "Follow") {
-	        $(this).text("Following"); 
+	        $(this).text("Following");
+	        $("#follow_count").html(function(i, val) {
+			      return val * 1 + 1;
+			}); 
 	    } else {
-	        $(this).text("Follow"); 
+	        $(this).text("Follow");
+	        $("#follow_count").html(function(i, val) {
+			      return val * 1 - 1;
+			}); 
 	    }; 
 	});
 	});
@@ -55,11 +61,11 @@
 					<span class="parameter">Recipe Created</span>
 				</div>
 				<div class="box">
-					<span class="value">1387</span>
+					<span class="value"><%= @total_like%></span>
 					<span class="parameter">Recipe Likes</span>
 				</div>
 				<div class="box">
-					<span class="value" id="follower_ajax"><%= @follower %></span>
+					<span class="value" id="follow_count"><%= @follower %></span>
 					<span class="parameter">Follower</span>
 				</div>
 			</div>

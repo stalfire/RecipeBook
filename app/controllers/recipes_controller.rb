@@ -47,6 +47,7 @@ class RecipesController < ApplicationController
 		filtering_params(params).each do |key, value|
     	@recipes = @recipes.public_send(key, value) if value.present?
   		end
+  		@recipes.order(:id)
 	end
 	def like
 		@like = Rating.where(user_id: current_user.id)

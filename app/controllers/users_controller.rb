@@ -32,6 +32,18 @@ class UsersController < ApplicationController
 		end
 		@follower = Follow.where(user_id: @user.id).count
 		@recipe = Recipe.where(user_id: params[:id]).count
+		@user_recipe = Recipe.where(user_id: @user.id)
+			@recipe_like = []
+			@user_recipe.each do |r|
+				rate = Rating.where(recipe_id: r.id)
+				@recipe_like << rate
+			end
+			@total_like = 0
+			@recipe_like.each do |c|
+				c.each do |c|
+				@total_like += 1
+				end
+			end
 	end
 	def follow
 		@follower = Follow.where(follower: current_user.id)

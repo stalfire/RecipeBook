@@ -2,28 +2,47 @@
 	$(document).ready(function(){
 		var like_btn = $('#like_btn');
 		$("#like_btn").on("click",function() {
-		    if (like_btn.attr('value') == 'Like #{@total_count}') {
-		        like_btn.val("Liked #{@total_count}");
+		    if (like_btn.attr('value') == 'Like') {
+		        like_btn.val("Liked");
+		        $("#like_count").html(function(i, val) {
+      				return val * 1 + 1;
+    			});
 		        console.log("get liked")
 		    } else {
-		        like_btn.val("Like #{@total_count}"); 
+		        like_btn.val("Like"); 
+		        $("#like_count").html(function(i, val) {
+			      return val * 1 - 1;
+			    });
 		        console.log("unliked")
 		    }; 
 		});
-
-		$('#like_btn').submit(function(e){
-			e.preventDefault();
-			$.ajax({
-				url: '/like.#{@recipe.id}',
-				method: 'POST',
-				data: $(this).serialize(),
-				dataType: 'json',
-				success: function(data){
-					console.log(data);
-					// $(this).append('\<p>' + testing +'</td>\ ');
-				}		
-			})
+		$("#like_btn").mouseover(function(){
+			$("#like_count").css("color","black");
+			$("#like_count").show();
 		});
+		$("#like_btn").mouseout(function(){
+			$("#like_count").hide();
+		});
+		$("#no_user_btn").mouseover(function(){
+			$("#like_count").css("color","black");
+			$("#like_count").show();
+		});
+		$("#no_user_btn").mouseout(function(){
+			$("#like_count").hide();
+		});
+		// $('#like_btn').submit(function(e){
+		// 	e.preventDefault();
+		// 	$.ajax({
+		// 		url: "/like.#{@recipe.id}",
+		// 		method: 'POST',
+		// 		data: $(this).serialize(),
+		// 		dataType: 'json',
+		// 		success: function(data){
+		// 			console.log(data);
+		// 			// $(this).append('\<p>' + testing +'</td>\ ');
+		// 		}		
+		// 	})
+		// });
 	});
 </script>
 <body class="recipe-body">
@@ -47,12 +66,17 @@
 					<p><%= @recipe.duration %></p>
 				</div>
 				<div class="like-content">
-					<%if @liked == nil %>
-						<%= button_to "Like #{@total_count}", like_path(@recipe),{id: "like_btn"}%>
+					<%if current_user != nil%>
+						<%if @liked == nil %>
+							<%= button_to "Like", like_path(@recipe),{id: "like_btn"}%>
+						<%else%>
+							<%= button_to "Liked", like_path(@recipe),{id: "like_btn"}%>
+						<%end%>
 					<%else%>
-						<%= button_to "Liked #{@total_count}", like_path(@recipe),{id: "like_btn"}%>
+						<p id="no_user_text">Please sign in to like this recipe</p>
+						<button id="no_user_btn">Like</button>
 					<%end%>
-					<p id="total_like"><%= @total_count%></p>
+					<p id="like_count"><%= @total_count%></p>	
 				</div>
 			</div>
 		</div>

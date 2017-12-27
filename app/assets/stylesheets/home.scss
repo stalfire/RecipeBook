@@ -32,3 +32,34 @@
 .category-box{
 	
 }
+
+/*//about page//*/
+#about-main{
+	margin: 10%;
+	margin-top: 7%;
+}
+#about-detail{
+	width: 100%;
+	height: 30em;
+	border-radius: 30px;
+	background:rgba(100,100,100, 0.3);
+	box-shadow: 10px 10px 5px grey;
+}
+#about-detail h1{
+	opacity: 1;
+}
+#about-detail p{
+	font-size: 20px;
+}
+#about-detail p:hover{
+	transform: scale(1.2);
+}
+#last_text_box{
+	width: 100%;
+	margin-left: 25%;
+}
+#about-detail #last_text{
+	width: 50%;
+	background-color:  #fdddcb;
+	border-radius: 15px;
+}

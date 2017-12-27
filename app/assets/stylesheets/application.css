@@ -25,6 +25,7 @@ nav{
 	background-size: cover;
 	background-repeat: no-repeat;
 	text-decoration: none;
+	position: sticky;
 }
 a #nav-icon{
 	float: left;
@@ -63,15 +64,17 @@ a #nav-icon{
     bottom: 0;
     width: 100%;
     height: 35px;
-    background-image: url(http://tasmich.org/wp-content/uploads/2015/03/Dollarphotoclub_86327586-e1436719294390.jpg);
+    background-image: url(https://s3-ap-southeast-1.amazonaws.com/stalfire/footer-background.png);
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
     text-align: center;
     position: fixed;
+    text-align: left;
 
 }
 #footer p a{
 	margin: 0px;
 	text-decoration: none;
+	color: white;
+	padding-left: 50px;
 }
