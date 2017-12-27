@@ -24,7 +24,7 @@
 					<div class="circle-1"></div>
 					<div class="circle-2"></div>
 					<%if @user.avatar?%>
-						<%= image_tag @user.avatar[0]%>
+						<%= image_tag @user.avatar%>
 					<%else%>
 						<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg"%>
 					<%end%>	

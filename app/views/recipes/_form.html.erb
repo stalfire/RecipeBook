@@ -1,3 +1,19 @@
+<script>
+	$(document).ready(function(){
+    var preview = $("#recipe_form_image");
+
+    $("#recipe_image_input").change(function(event){
+       var input = $(event.currentTarget);
+       var file = input[0].files[0];
+       var reader = new FileReader();
+       reader.onload = function(e){
+           image_base64 = e.target.result;
+           preview.attr("src", image_base64);
+       };
+       reader.readAsDataURL(file);
+    });
+  });
+</script>
 <div id="recipe-form-wrapper">
 		<%= simple_form_for @recipe do |f| %>
 			<div id="recipe-info-box">
@@ -5,7 +21,7 @@
 					<div>
 						<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/us_img_recipe_default_600x600.jpg",{id:'recipe_form_image'}%>
 					</div>
-					<%= f.file_field :avatar, multiple: true%>
+					<%= f.file_field :avatar, multiple: true, :id => "recipe_image_input" %>
 				</div>
 				<div id="recipe-form-info">
 					<div class="group">

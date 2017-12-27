@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 		else
 			redirect_to sign_up_path
 		end
+		byebug
 	end
 
 	def edit

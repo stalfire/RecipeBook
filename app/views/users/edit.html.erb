@@ -1,10 +1,26 @@
+<script>
+  $(document).ready(function(){
+    var preview = $("#edit_profile_picture");
+
+    $("#edit_profile_image").change(function(event){
+       var input = $(event.currentTarget);
+       var file = input[0].files[0];
+       var reader = new FileReader();
+       reader.onload = function(e){
+           image_base64 = e.target.result;
+           preview.attr("src", image_base64);
+       };
+       reader.readAsDataURL(file);
+    });
+  });
+</script>
 <body id="user_sign_up_body">
 	<div class='window'>
     <div class='overlay'></div>
     <div class='content'>
       <div class='welcome' style="margin-top: 15px;">Edit Profile</div>
-      <%if @user.avatar[0] != nil %>
-      <div><%= image_tag @user.avatar[0],:id => "edit_profile_picture"%></div>
+      <%if @user.avatar.file.nil? %>
+      <div class="upload-preview"><%= image_tag @user.avatar,:id => "edit_profile_picture"%></div>
       <%else%>
       <div><%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/5222813300aeedfaa9d85eacab199d32--fondant-recipes-frosting-recipes.jpg",:id => "edit_profile_picture"%></div>
       <%end%>
