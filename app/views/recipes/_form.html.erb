@@ -19,7 +19,11 @@
 			<div id="recipe-info-box">
 				<div id="recipe-form-box">
 					<div>
+						<% if @recipe.avatar[0] != nil %>
+						<%= image_tag @recipe.avatar[0],{id:'recipe_form_image'}%>
+						<%else%>
 						<%= image_tag "https://s3-ap-southeast-1.amazonaws.com/stalfire/us_img_recipe_default_600x600.jpg",{id:'recipe_form_image'}%>
+						<%end%>
 					</div>
 					<%= f.file_field :avatar, multiple: true, :id => "recipe_image_input" %>
 				</div>

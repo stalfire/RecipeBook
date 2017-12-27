@@ -10,7 +10,7 @@ class User < ApplicationRecord
 	has_secure_password
   has_secure_token
   mount_uploader :avatar, AvatarUploader
-
+  serialize :avatar, JSON
 
 	enum role: [ :reg_user, :admin ] 
 

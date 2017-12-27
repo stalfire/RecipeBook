@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 		else
 			redirect_to sign_up_path
 		end
-		byebug
 	end
 
 	def edit
@@ -60,7 +59,7 @@ class UsersController < ApplicationController
 private
 
 	def user_params
-		params.require(:user).permit({avatar: []},:name, :email, :password)
+		params.require(:user).permit(:avatar,:name, :email, :password)
 	end
 
 end
