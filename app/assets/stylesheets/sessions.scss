@@ -14,3 +14,10 @@
 	text-align: center;
 	padding-top: 5%;
 }
+
+@media (max-height: 800px) {
+  
+  .user_login_main{
+    padding: 10px;
+  }
+}
