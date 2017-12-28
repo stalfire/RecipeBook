@@ -205,6 +205,14 @@ button:focus {
     height: 100%;
   }
 }
+@media (max-height: 800px) {
+  .window {
+    margin-top: 5px;
+  }
+  #user_sign_up{
+    padding: 10px;
+  }
+}
 
 #edit_profile_picture{
   width: 100px;
